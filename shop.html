@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-shirt Shop</title>
+    <style>
+        #identifier {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        #t-shirt    {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 250px;
+            max-width: 1200px;
+            margin: 2em auto;
+            background-color: white;
+            padding: 2em;
+            margin-left: 50px;
+        }
+
+        .tshirt {
+            text-align: center;
+    
+        }
+
+        #img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 1em;
+        }
+
+        button {
+            display: block;
+            padding: 2em;
+            width: 100%;
+            padding: 1em;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em;
+            background-color: #333;
+            color: white;
+        }
+        #price {
+            margin-right: 20px;
+        }
+        
+    </style>
+    
+<link rel="stylesheet" href="shop_style.css">
+</head>
+<body>
+    <section id="header">
+        <a href="#"><img src="Logo3.png" class="logo" alt="" width="135px" height="120px"></a>
+   <div>
+      <ul id="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a class="active" href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="cart.html"><img src="canta.jpeg" alt="shopping-bag--v1"></i></a></li>
+      </ul> 
+   </div>
+    </section>
+    <header id="identifier">
+        <h1>T-shirt Shop</h1>
+    </header>
+
+    <section id="t-shirt">
+        <div class="tshirt" id="one">
+            <h2>Fresh Shirt</h2>
+            <img src="Fresh.png" alt="Awesome T-shirt 1" id="img">
+            <p id="price">Price: $19.99</p>
+            <button onclick="buyNow()">Buy Now</button>
+        </div>
+
+        <div class="tshirt" id="two">
+            <h2>Breezy Shirt</h2>
+            <img src="Breezyshirt.png" alt="Awesome T-shirt 2" id="img">
+            <p id="price">Price: $21.99</p>
+            <button onclick="buyNow()">Buy Now</button>
+        </div>
+
+        <div class="tshirt" id="three">
+            <h2>CDK</h2>
+            <img src="CDK.png" alt="Awesome T-shirt 3" id="img">
+            <p id="price">Price: $24.99</p>
+            <button onclick="buyNow()">Buy Now</button>
+        </div>
+
+        <div class="tshirt" id="four">
+            <h2>Coffee addict</h2>
+            <img src="white-t-shirt-2.png" alt="Awesome T-shirt 4" id="img"> 
+            <p id="price">Price: $22.99</p>
+            <button onclick="buyNow()">Buy Now</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>©2023, Designed By Gucveren Developments - All Rights Reserved</p>
+    </footer>
+
+    <script>
+        function buyNow() {
+            alert('Thank you for your purchase!');
+            
+            // Add logic for processing the purchase (e.g., redirect to a payment gateway)
+        }
+    </script>   
+</body>
+</html>

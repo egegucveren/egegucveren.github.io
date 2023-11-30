@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+    <link rel="stylesheet" href="cart_style.css">
+</head>
+<body>
+    <section id="header">
+        <a href="#"><img src="Logo3.png" class="logo" alt="" width="135px" height="120px"></a>
+   <div>
+      <ul id="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a  class="active" href="cart.html"><img src="canta.jpeg" alt="shopping-bag--v1"></i></a></li>
+      </ul> 
+   </div>
+</section>
+
+<section id="cart" class="section-p1">
+<table width="100%">
+<thead>
+    <tr>
+        <td>Remove</td>
+        <td>Image</td>
+        <td>Product</td>
+        <td>Price</td>
+        <td>Quantity</td>
+        <td>Subtotal</td>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td><a href="#"><i class="far fa-times"></i></a></td>
+        <td><img src="Fresh.png" alt=""></td>
+        <td>Fresh Shirt</td>
+        <td>$19.99</td>
+        <td><input type="number" value="0" min="0"></td>
+        <td>$19.99</td>
+    </tr>
+    <tr>
+        <td><a href="#"><i class="far fa-times"></i></a></td>
+        <td><img src="Breezyshirt.png" alt=""></td>
+        <td>Fresh Shirt</td>
+        <td>$21.99</td>
+        <td><input type="number" value="0" min="0"></td>
+        <td>$21.99</td>
+    </tr> <tr>
+        <td><a href="#"><i class="far fa-times"></i></a></td>
+        <td><img src="CDK.png" alt=""></td>
+        <td>CDK</td>
+        <td>$24.99</td>
+        <td><input type="number" value="0" min="0"></td>
+        <td>$24.99</td>
+    </tr>
+    <tr>
+        <td><a href="#"><i class="far fa-times"></i></a></td>
+        <td><img src="white-t-shirt-2.png" alt=""></td>
+        <td>Coffee addict</td>
+        <td>$22.99</td>
+        <td><input type="number" value="0" min="0"></td>
+        <td>$22.99</td>
+    </tr>
+</tbody>
+</table>
+
+</section>
+
+<section id="cart-add" class="section-p1">
+    <div id="coupon">
+        <h3>Apply Coupon</h3>
+    <div>
+    <input type="text" placeholder="Enter Your Coupon">
+    <button class="normal">Apply</button>
+    </div>
+    </div>  
+
+    <div id="subtotal">
+    <h3>Cart Total</h3>
+    <Table>
+        <tr>
+            <td>Cart Total</td>
+            <td>$ 89.96</td>
+        </tr>
+        <tr>
+            <td>shipping</td>
+            <td>Free</td>
+        </tr>
+    </Table>
+    <button>Proceed to checkout</button>
+    </div>
+</section>
+<script>
+    // Function to calculate subtotal for a row
+    function calculateSubtotal(row) {
+        var price = parseFloat(row.cells[3].textContent.replace('$', ''));
+        var quantity = parseInt(row.cells[4].querySelector('input').value);
+        var subtotal = price * quantity;
+        row.cells[5].textContent = '$' + subtotal.toFixed(2);
+        updateTotal();
+    }
+
+    // Function to update the total
+    function updateTotal() {
+        var total = 0;
+        var rows = document.querySelectorAll('#cart tbody tr');
+        rows.forEach(function(row) {
+            total += parseFloat(row.cells[5].textContent.replace('$', ''));
+        });
+
+        // Update the total in the table
+        document.querySelector('#subtotal td:last-child').textContent = '$ ' + total.toFixed(2);
+    }
+
+    // Attach event listeners to quantity input fields
+    var quantityInputs = document.querySelectorAll('#cart tbody input[type="number"]');
+    quantityInputs.forEach(function(input) {
+        input.addEventListener('input', function() {
+            calculateSubtotal(input.closest('tr'));
+        });
+    });
+
+    // Initial calculation
+    var initialRows = document.querySelectorAll('#cart tbody tr');
+    initialRows.forEach(function(row) {
+        calculateSubtotal(row);
+    });
+</script>
+</body>
+</html>
